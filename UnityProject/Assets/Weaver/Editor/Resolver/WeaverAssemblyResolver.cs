@@ -28,6 +28,11 @@ namespace Weaver
             // for each currently loaded assembly,
             for (int i = 0; i < assemblies.Length; i++)
             {
+                if ( assemblies[i].IsDynamic )
+                {
+                    // hot-fix? skip dynamic libraries
+                    continue;
+                }
                 // store locations
                 _appDomainAssemblyLocations[assemblies[i].FullName] = assemblies[i].Location;
                 // add all directories as search paths

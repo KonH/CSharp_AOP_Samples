@@ -228,11 +228,11 @@ namespace Weaver
                 // Pass the reader our resolver 
                 readerParameters.AssemblyResolver = m_Resolver;
                 // Tell the reader to look at symbols so we can get line numbers for errors, warnings, and logs.
-                readerParameters.ReadSymbols = true;
+                // readerParameters.ReadSymbols = true; - hot-fix
                 // Create our writer
                 WriterParameters writerParameters = new WriterParameters();
                 // We do want to write our symbols
-                writerParameters.WriteSymbols = true;
+                // writerParameters.WriteSymbols = true; - hot-fix
                 // Create a list of definitions
                 Collection<ModuleDefinition> editingModules = new Collection<ModuleDefinition>();
                 for (int i = 0; i < assemblies.Count; i++)
