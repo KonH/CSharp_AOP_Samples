@@ -1,10 +1,8 @@
-SampleApp/SampleApp/bin
-SampleApp/SampleApp/obj
-SampleApp/.idea
+.idea
+bin
+obj
 *.user
 .DS_Store
-UnityProject/.idea
-UnityProject/obj
 UnityProject/*.sln
 UnityProject/*.csproj
 UnityProject/Temp
