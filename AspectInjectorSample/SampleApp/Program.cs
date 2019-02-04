@@ -47,6 +47,14 @@ namespace SampleApp {
 			configs.Toggles["Feature"] = false;
 			myService.MainRoutine();
 			// Service perform main routine...
+
+			Console.WriteLine();
+			Console.WriteLine("NotNullGuard:");
+
+			var nullSafeInstance = new NullSafeClass();
+			nullSafeInstance.MethodWithNullableArgs("nullable", "notNull");
+			nullSafeInstance.MethodWithNullableArgs(null, "notNull");
+			nullSafeInstance.MethodWithNullableArgs("nullable", null);
 		}
 	}
 }

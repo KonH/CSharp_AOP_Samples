@@ -7,3 +7,4 @@ UnityProject/*.sln
 UnityProject/*.csproj
 UnityProject/Temp
 UnityProject/Library
+AspectInjectorSample/.vs/
