@@ -1,10 +1,14 @@
+.vs
 .idea
 bin
 obj
 *.user
 .DS_Store
-UnityProject/*.sln
+WeaverUnityProject/*.sln
+WeaverUnityProject/*.csproj
+WeaverUnityProject/Temp
+WeaverUnityProject/Library
+AnityProject/*.sln
 UnityProject/*.csproj
 UnityProject/Temp
 UnityProject/Library
-AspectInjectorSample/.vs/
