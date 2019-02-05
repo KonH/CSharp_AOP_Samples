@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="cp &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(SolutionDir)../UnityProject/Assets/Plugins/$(TargetName).dll&quot;" />
+	</Target>
+</Project>
