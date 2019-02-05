@@ -4,6 +4,10 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="AspectInjector" Version="2.0.2" />
+	</ItemGroup>
+
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<Exec Command="cp &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(SolutionDir)../UnityProject/Assets/Plugins/$(TargetName).dll&quot;" />
 	</Target>
