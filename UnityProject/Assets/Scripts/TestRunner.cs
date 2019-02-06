@@ -4,12 +4,12 @@ using UnityAspectInjectorSample;
 public class TestRunner : MonoBehaviour {
 	public int ScoreView;
 	
-	GameState _state = new GameState(100);
+	GameState _state = null;
 	
 	void Start() {
-		GameState.LogCallback = msg => Debug.Log(msg); // temporary
-		
-		_state.IncreaseScores(50, 100, -250);
+		UnityAspectInjectorSample.Logger.Initialize(Debug.Log);
+		_state = new GameState(100);
+		_state.IncreaseScores(50, 100, -250, 0);
 		ScoreView = _state.Scores;
 	}
 }

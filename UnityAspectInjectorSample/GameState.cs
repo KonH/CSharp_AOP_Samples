@@ -1,25 +1,20 @@
-using System;
-
 namespace UnityAspectInjectorSample {
-	//[EnableLogging]
-	public class GameState {
-		// temporary, need to reference UnityEngine here
-		public static Action<string> LogCallback = null;
-		
+	[EnableLogging]
+	public class GameState {		
 		public int Scores { get; private set; }
 
 		public GameState(int initialScore) {
 			Scores = initialScore;
 		}
 		
-		[EnableLogging]
-		public void IncreaseScores(int value1, int value2, int value3) {
+		// For testing nested method calls
+		public void IncreaseScores(int value1, int value2, int value3, int value4) {
 			IncreaseScore(value1);
 			IncreaseScore(value2);
 			IncreaseScore(value3);
+			IncreaseScore(value4);
 		}
-
-		[EnableLogging]
+		
 		bool IncreaseScore(int value) {
 			Scores += value;
 			return (Scores > 0);
