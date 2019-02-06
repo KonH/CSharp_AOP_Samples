@@ -20,23 +20,25 @@ public static class BuildMenu {
 		var curDir = Directory.GetCurrentDirectory();
 		var parent = Directory.GetParent(curDir);
 		var path = Path.Combine(parent.FullName, "UnityAspectInjectorSample");
+		var outPath = $"{curDir}/Assets/Plugins/UnityAspectInjectorSample/netstandard2.0";
 
-		if ( Run($"clean \"{path}\"") && Run($"build \"{path}\" -c {name}") ) {
+		if ( Run($"clean \"{path}\" -o \"{outPath}\"") && Run($"build \"{path}\" -c {name} -o \"{outPath}\"") ) {
 			AssetDatabase.Refresh();
 		}
 	}
 
 	static bool Run(string command) {
-		// Hack, because %PATH% inside Unity is different
-		var oldPath = System.Environment.GetEnvironmentVariable("PATH");
-		System.Environment.SetEnvironmentVariable("PATH", oldPath + ":/usr/local/share/dotnet/");
+		// Hack, because %PATH% inside Unity may be different on MacOS
+		var oldPath = Environment.GetEnvironmentVariable("PATH");
+		Environment.SetEnvironmentVariable("PATH", oldPath + ":/usr/local/share/dotnet/");
 		
 		var startInfo = new ProcessStartInfo {
 			FileName               = "dotnet",
 			Arguments              = command,
 			RedirectStandardError  = true,
 			RedirectStandardOutput = true,
-			UseShellExecute        = false
+			UseShellExecute        = false,
+			CreateNoWindow         = true
 		};
 		
 		try {
